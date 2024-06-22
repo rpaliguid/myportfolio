@@ -1,0 +1,841 @@
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --white: #ffffff;
+  --main-color: #ffffff;
+}
+
+.cursor-visible {
+  cursor: auto !important;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #ffffff;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.player {
+  border-radius: 25px;
+  width: 355px;
+}
+
+.video-container-short {
+  border-radius: 25px;
+  margin-top: -400px;
+  width: 300px;
+  box-shadow: 0 0 20px 3px #00000066;
+}
+
+.video-container-long {
+  border-radius: 25px;
+  width: 320px;
+  box-shadow: 0 0 15px 5px #00000066;
+  margin-top: -100px;
+}
+
+.text {
+  color: #070710;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.text-des {
+  color: #070710;
+  margin-bottom: -150px;
+}
+
+.progress__filled {
+  width: 50%;
+  background: #AA5500;
+  flex: 0;
+  flex-basis: 0%;
+}
+
+.serviceBox {
+  color: var(--main-color);
+  background: linear-gradient(to top, var(--main-color) 42%, var(--white) 0%);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  text-align: center;
+  padding: 350px 200px;
+  border-radius: 30px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.callBox {
+  color: var(--main-color);
+  background: linear-gradient(to top, var(--main-color) 42%, var(--white) 0%);
+  font-family: 'Zen Maru Gothic', sans-serif;
+  text-align: center;
+  padding: 150px 200px;
+  border-radius: 30px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+html,
+body,
+#root,
+.bg,
+canvas {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #c57676;
+  font-family: 'Inter var', sans-serif;
+}
+
+.background {
+  position: absolute;
+  background: radial-gradient(at 50% 100%, #873740 0%, #272730 40%, #171720 80%, #070710 100%);
+}
+
+.card {
+  position: relative;
+  border-radius: 25px;
+  height: 590px;
+  width: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 80px -10px black;
+  overflow: hidden;
+  top: 0px;
+}
+
+.card-blur {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 1px);
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+  border-radius: 25px;
+  margin-top: -100px;
+}
+
+.card:hover .card-blur {
+  border-radius: 25px;
+  opacity: 0.3;
+}
+
+.footer {
+  z-index: 1;
+  height: 100px;
+  width: 400px;
+  bottom: 0;
+}
+
+svg#curve {
+  position: absolute;
+  fill: white;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  height: 450px;
+}
+
+.connections {
+  height: 200px;
+  width: 400px;
+}
+
+.connection {
+  margin-top: 520px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  padding: 5px;
+  margin-right: 25px;
+  transform: translateY(200px);
+  transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .connection {
+  transform: translateY(10px);
+}
+
+.info {
+  margin-top: 50px;
+  font-family: Inconsolata;
+  padding-left: 20px;
+  transform: translateY(250px);
+  transition: transform 1s cubic-bezier(.31, 1.21, .64, 1.02);
+  color: #ffffff;
+}
+
+.card:hover .info {
+  transform: translateY(0px);
+}
+
+.connection.facebook {
+  height: 35px;
+  width: 35px;
+  margin-left: 20px;
+  padding: 0px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.connection.twitter {
+  transition-delay: 0.06s;
+}
+
+.connection.behance {
+  transition-delay: 0.12s;
+}
+
+.connection.facebook .icon {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+}
+
+.connection.twitter .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: -4px;
+  margin-left: 4px;
+}
+
+.connection.behance .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+#parent {
+  position: relative;
+}
+
+:root {
+  --transition-ease-in-out: all 0.75s ease-in-out;
+  --transition-cubic-bezier: all 0.55s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-offset: 80px;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.canvas1 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+}
+
+.canvas1_copy_title {
+  margin-bottom: -15px;
+  font-size: 62px;
+  display: block;
+  transform: translateX(-80px);
+  transition: var(--transition-cubic-bezier) 0s;
+  opacity: 0;
+  text-shadow: 0 0 20px 3px #00000066 ;
+}
+
+.canvas1_copy_title:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.canvas1_copy_details {
+  display: block;
+  transition: var(--transition-cubic-bezier) 0.14s;
+  transform: translateX(-80px);
+  opacity: 0;
+  margin-right: 35px;
+  margin-top: 30px;
+}
+
+.canvas1:hover .canvas1_copy_title,
+.canvas1:hover .canvas1_copy_details {
+  opacity: 1;
+  transform: translateX(0);
+  margin-right: 35px;
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 2000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes erase-line {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 2000;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.canvas2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+}
+
+.canvas2_copy_title {
+  margin-bottom: -5px;
+  font-size: 30px;
+  display: block;
+  transform: translateX(-80px);
+  transition: var(--transition-cubic-bezier) 0s;
+  opacity: 0;
+  text-shadow: 0 0 20px 3px #00000066 ;
+}
+
+.canvas2_copy_title:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.canvas2_copy_details {
+  display: block;
+  transition: var(--transition-cubic-bezier) 0.14s;
+  transform: translateX(-80px);
+  opacity: 0;
+  margin-right: 35px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.canvas2:hover .canvas2_copy_title,
+.canvas2:hover .canvas2_copy_details {
+  opacity: 1;
+  transform: translateX(0);
+  margin-right: 35px;
+}
+
+.card2 {
+  position: relative;
+  border-radius: 25px;
+  height: 230px;
+  width: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 80px -10px black;
+  overflow: hidden;
+  top: 0px;
+}
+
+.card2-blur {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 1px);
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+  border-radius: 25px;
+  margin-top: -100px;
+}
+
+.card2:hover .card2-blur {
+  border-radius: 25px;
+  opacity: 0.3;
+}
+
+
+.connections2 {
+  height: 200px;
+  width: 400px;
+}
+
+.connection2 {
+  margin-top: 170px;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  padding: 5px;
+  margin-right: 25px;
+  transform: translateY(200px);
+  transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card2:hover .connection2 {
+  transform: translateY(10px);
+}
+
+.connection2.facebook {
+  height: 25px;
+  width: 25px;
+  margin-left: 20px;
+  padding: 0px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.connection2.twitter {
+  transition-delay: 0.06s;
+}
+
+.connection2.behance {
+  transition-delay: 0.12s;
+}
+
+.connection2.facebook .icon {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+}
+
+.connection2.twitter .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: -4px;
+  margin-left: 4px;
+}
+
+.connection2.behance .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card3 {
+  float: left; /* Add this line */
+  position: relative;
+  border-radius: 25px;
+  height: 570px;
+  width: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 80px -10px black;
+  overflow: hidden;
+  top: 0px;
+}
+
+.card3-blur {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 1px);
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+  border-radius: 25px;
+  margin-top: -100px;
+}
+
+.card3:hover .card3-blur {
+  border-radius: 25px;
+  opacity: 0.3;
+}
+
+.connections3 {
+  height: 200px;
+  width: 400px;
+}
+
+.connection3 {
+  margin-top: 510px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  padding: 5px;
+  margin-right: 25px;
+  transform: translateY(200px);
+  transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card3:hover .connection3 {
+  transform: translateY(10px);
+}
+
+.card3:hover .info {
+  transform: translateY(0px);
+}
+
+.connection3.facebook {
+  height: 35px;
+  width: 35px;
+  margin-left: 20px;
+  padding: 0px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.connection3.twitter {
+  transition-delay: 0.06s;
+}
+
+.connection3.behance {
+  transition-delay: 0.12s;
+}
+
+.connection3.facebook .icon {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+}
+
+.connection3.twitter .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: -4px;
+  margin-left: 4px;
+}
+
+.connection3.behance .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+
+.canvas3 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+}
+
+.canvas3_copy_title {
+  margin-bottom: -15px;
+  font-size: 62px;
+  display: block;
+  transform: translateX(-80px);
+  transition: var(--transition-cubic-bezier) 0s;
+  opacity: 0;
+  text-shadow: 0 0 20px 3px #00000066 ;
+}
+
+.canvas3_copy_title:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.canvas3_copy_details {
+  display: block;
+  transition: var(--transition-cubic-bezier) 0.14s;
+  transform: translateX(-80px);
+  opacity: 0;
+  margin-right: 35px;
+  margin-top: 30px;
+}
+
+.canvas3:hover .canvas3_copy_title,
+.canvas3:hover .canvas3_copy_details {
+  opacity: 1;
+  transform: translateX(0);
+  margin-right: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card4 {
+  float: left;
+  position: relative;
+  border-radius: 25px;
+  height: 570px;
+  width: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 80px -10px black;
+  overflow: hidden;
+  top: 0px;
+}
+
+.card4-blur {
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 1px);
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease-in;
+  border-radius: 25px;
+  margin-top: -100px;
+}
+
+.card4:hover .card4-blur {
+  border-radius: 25px;
+  opacity: 0.3;
+}
+
+.connections4 {
+  height: 200px;
+  width: 400px;
+}
+
+.connection4 {
+  margin-top: 510px;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  background-color: rgb(170, 170, 170);
+  display: inline-block;
+  padding: 5px;
+  margin-right: 25px;
+  transform: translateY(200px);
+  transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card4:hover .connection4 {
+  transform: translateY(10px);
+}
+
+
+.card4:hover .info {
+  transform: translateY(0px);
+}
+
+.connection4.facebook {
+  height: 35px;
+  width: 35px;
+  margin-left: 20px;
+  padding: 0px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.connection4.twitter {
+  transition-delay: 0.06s;
+}
+
+.connection4.behance {
+  transition-delay: 0.12s;
+}
+
+.connection4.facebook .icon {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(170, 170, 170);
+}
+
+.connection4.twitter .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: -4px;
+  margin-left: 4px;
+}
+
+.connection4.behance .icon {
+  height: 18px;
+  width: 18px;
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+
+.canvas4 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 2;
+  color: rgb(170, 170, 170);
+}
+
+.canvas4_copy_title {
+  margin-bottom: -15px;
+  font-size: 62px;
+  display: block;
+  transform: translateX(-80px);
+  transition: var(--transition-cubic-bezier) 0s;
+  opacity: 0;
+}
+
+.canvas4_copy_title:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.canvas4_copy_details {
+  display: block;
+  transition: var(--transition-cubic-bezier) 0.14s;
+  transform: translateX(-80px);
+  opacity: 0;
+  margin-right: 35px;
+  margin-top: 30px;
+}
+
+.canvas4:hover .canvas4_copy_title,
+.canvas4:hover .canvas4_copy_details {
+  opacity: 1;
+  transform: translateX(0);
+  margin-right: 35px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  gap: 20px; /* Optional: Adjust the space between cards */
+}
+
+
+
+
+
+
+.contact-info {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-icon:hover {
+  transform: scale(1.1);
+}
+
+.contact-icon.email {
+  background-color: #ffffff;
+}
+
+.contact-icon.twitter {
+  background-color: #1DA1F2;
+}
+
+.contact-icon.discord {
+  background-color: #7289da;
+}
+
+
+.close2 {
+  position: absolute;
+  right: -60px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  z-index: 3;
+}
+
+.close2:hover {
+  opacity: 1;
+}
+
+.close2:before,
+.close2:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #ffffff;
+}
+
+.close2:before {
+  transform: rotate(45deg);
+}
+
+.close2:after {
+  transform: rotate(-45deg);
+}
