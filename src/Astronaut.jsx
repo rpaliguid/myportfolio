@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useGLTF, useAnimations, useScroll } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export function Astronaut(props) {

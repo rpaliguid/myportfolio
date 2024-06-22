@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useGLTF, PointerLockControls, Html } from '@react-three/drei';
+import { useGLTF, Html } from '@react-three/drei';
 import { useAnimations } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber'
-import { useCursor } from '@react-three/drei'
 import * as THREE from 'three'
 import htmlIcon from './html.svg';
 
 const LeafletProject = ({ toggleDisplay }) => {
   return (
     <Html center>
-      <a href='#' className="close" onClick={toggleDisplay} />
+      <button className="close" onClick={toggleDisplay}/>
       <div className="card">
         <a className="canvas1">
           <strong className="canvas1_copy_title">3D</strong>
@@ -69,7 +67,7 @@ const LeafletProject = ({ toggleDisplay }) => {
 const SocmedProject = ({ toggleDisplay }) => {
   return (
     <Html center>
-      <a href='#' className="close" onClick={toggleDisplay} />
+      <button className="close" onClick={toggleDisplay}/>
       <div className="card-container">
         <div className="card4">
           <a className="canvas4">
@@ -225,7 +223,7 @@ const SocmedProject = ({ toggleDisplay }) => {
 const AiProject = ({ toggleDisplay }) => {
   return (
     <Html center>
-      <a href='#' className="close" onClick={toggleDisplay} />
+      <button href='#' className="close" onClick={toggleDisplay}></button>
       <div className="card2">
         <a className="canvas2">
           <strong className="canvas2_copy_title">Conversational</strong>
@@ -288,7 +286,7 @@ const Call = ({ toggleDisplay }) => {
   return (
     <Html center>
       <div class="contact-info">
-      <a href='#' className="close2" onClick={toggleDisplay} />
+      <button className="close2" onClick={toggleDisplay}/>
         <a href="mailto:paliguidrainiel@gmail.com" class="contact-icon email" title="Email">
           <i class="fas fa-envelope">
             <svg xmlns="http://www.w3.org/2000/svg" transform="translate(0,4)" width="45" height="45" viewBox="0 0 48 48">

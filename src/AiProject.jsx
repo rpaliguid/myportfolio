@@ -11,7 +11,7 @@ const AiProject = ({ toggleDisplay }) => {
           Your browser does not support the video tag.
         </video>
         </div>
-        <a href='#' className="close" onClick={toggleDisplay}></a>
+        <button className="close" onClick={toggleDisplay}></button>
       </div>
     </Html>
   );

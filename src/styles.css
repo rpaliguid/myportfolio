@@ -10,13 +10,14 @@
 }
 
 .close {
+  background: none;
   position: absolute;
-  right: 20px;
+  border: none;
+  right: 30px;
   top: 20px;
-  width: 32px;
-  height: 32px;
   opacity: 0.3;
   z-index: 3;
+  cursor: pointer;
 }
 
 .close:hover {
@@ -809,9 +810,11 @@ strong {
 
 
 .close2 {
+  background: none;
+  border: none;
+  cursor: pointer;
   position: absolute;
   right: -60px;
-  top: 15px;
   width: 32px;
   height: 32px;
   opacity: 0.7;
